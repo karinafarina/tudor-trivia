@@ -53,7 +53,7 @@ const STORE = [
       'King Henry the 5th',
       'King Henry the 8th',
       'King Henry the 7th',
-      'Queen Anne Bolyen
+      'Queen Anne Bolyen'
     ],
     correctAnswer: 'King Henry the 7th',
     img: 'img/henryTheSeventh.jpg',
