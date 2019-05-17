@@ -34,7 +34,7 @@ body {
   position: absolute;
 }
 
-main {
+.start-screen {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
