@@ -9,42 +9,42 @@ function handleStartButton() {
     $('.start-screen').remove();
     $('.questions').css('display', 'flex');
     $('.question-number').text(1);
-    handleRenderQuestion();
+    renderQuestion();
   });
   console.log('`handleStartButton` ran');
 }
 
 //Loop through and Display each question from the STORE and the choices with a submit button
 function generateQuestions() {
+  console.log('`generateQuestions` ran');
+  console.log(questionNumber, STORE.length);
   if(questionNumber < STORE.length) {
-    return
-    `<div class="question-${questionNumber}">
-      <h1 class="question-title">${STORE[questionNumber].question}</h1>
-        <form>
-          <input type="radio" name="a" value="Anne Boleyn" checked="true">Anne Boleyn<br>
-          <input type="radio" name="b" value="Anne of Cleves">Anne of Cleves<br>
-          <input type="radio" name="c" value="Catherine Howard">Catherine Howard<br>
-          <input type="radio" name="d" value="Katherine Parr">Katherine Parr<br />
-          <button type="submit" name="submit" class="submit" value="Submit">Submit</button>
-        </form>`;
+    return `<div class="numbers">Question: ${questionNumber + 1} of 9</div>
+    <h1 class="question-title">${STORE[questionNumber].question}</h1>
+      <form>
+        <input type="radio" name="answers" value="${STORE[questionNumber].answers[0]}">${STORE[questionNumber].answers[0]}<br>
+        <input type="radio" name="answers" value="${STORE[questionNumber].answers[1]}">${STORE[questionNumber].answers[1]}<br>
+        <input type="radio" name="answers" value="${STORE[questionNumber].answers[2]}">${STORE[questionNumber].answers[2]}<br>
+        <input type="radio" name="answers" value="${STORE[questionNumber].answers[3]}">${STORE[questionNumber].answers[3]}<br>
+        <button type="submit" class="submit">Submit</button>
+      </form>
+      <div class="tally numbers">Score: <span class="score">0</span></div>`;
   } else {
     overallScore();
     handleStartNewButton();
   }
-  console.log('`generateQuestions` ran');
 }
 
-
-function handleRenderQuestion() {
+function renderQuestion() {
   $('.questions').html(generateQuestions());
-  console.log('`handleRenderQuestion()` ran')
+  console.log('`renderQuestion()` ran');
 }
 
 //increment question number for each question
 function changeQuestionNumber() {
   questionNumber ++;
   console.log(questionNumber);
-  $('.question-number').text(questionNumber + 1);
+  //$('.question-number').text(questionNumber + 1);
 }
 
 //increment score
@@ -53,23 +53,22 @@ function changeTally() {
   console.log(tally);
 }
 
-function handleSubmitButton(data) {
-  $('form').on('submit', function(e) {
-    e.preventDefault();
+function handleSubmitButton() {
+  $('form').on('submit', function(event) {
+    event.preventDefault();
     let selected = $('input:checked');
     let userAnswer = selected.val();
-    let correctAnswer = `${data[questionNumber].correctAnswer}`;
+     console.log(userAnswer, 'user answwer');
+    let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
+    console.log(correctAnswer, 'correct answer');
+    //if answer is correct, render html for correct statement with image and alt
     if(correctAnswer === userAnswer) {
       console.log('that is correct');
+    } else {
+      //if answer is incorrect, render html for incorrect statement with correct statement and image and alt
+      console.log('`handleSubmitButton` ran')
     }
   })
-  //if answer is correct, render html for correct statement with image and alt
-  changeTally();
-  changeQuestionNumber();
-  //if answer is incorrect, render html for incorrect statement with correct statement and image and alt
-  console.log('`handleSubmitButton` ran')
-  changeQuestionNumber();
-
 }
 
 function overallScore() {
@@ -84,7 +83,6 @@ function handleStartNewButton() {
 
 function handleQuizApp() {
   handleStartButton();
-  handleRenderQuestion();
   //handleSubmitButton();
   //handleStartNewButton();
 }
