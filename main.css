@@ -23,6 +23,7 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
+	font-family: 'Ludlow Strong Ale'
 }
 
 main {
@@ -46,7 +47,7 @@ main {
   align-items: center;
 }
 .title {
-  font-size: 45px;
+  font-size: 60px;
   color: #fff;
 }
 
@@ -56,7 +57,7 @@ button.start {
 }
 
 .numbers {
-	font-size: 20px;
+	font-size: 30px;
 }
 
 .questions-background {
@@ -78,11 +79,11 @@ button.start {
 
 .question-title {
 	text-align: center;
-	font-size: 40px;
+	font-size: 50px;
 }
 
 form {
-	font-size: 25px;
+	font-size: 35px;
 }
 
 .submit {
@@ -114,17 +115,13 @@ form {
 	width: 100%;
 }
 
-.tally {
-	font-size: 30px;
-}
-
 .next {
 	font-size: 20px;
 	border-radius: 5px;
 }
 
 .results {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	justify-content: space-evenly;
 	background-color: #000;

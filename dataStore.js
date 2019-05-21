@@ -9,8 +9,13 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Anne of Cleeves',
-      img: 'img/anneOfCleves.jpg',
-      alt: 'Portrait of Anne of Cleves'
+      name: null,
+      images: [
+        {
+          img:'img/anneOfCleves.jpg',
+          alt: 'Portrait of Anne of Cleves'
+        }
+      ]
     },
   },
   {
@@ -22,9 +27,14 @@ const STORE = [
       1
     ],
     correctAnswer: {
-      correct: "1 Mary Tudor",
-      img: 'img/maryTudor.jpg',
-      alt: 'Portrait of Mary Tudor',
+      correct: 1,
+      name: 'Mary Tudor',
+      images: [
+        {
+          img: 'img/maryTudor.jpg',
+          alt: 'Portrait of Mary Tudor'
+       }
+     ]
     },
   },
   {
@@ -37,8 +47,13 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Beheading',
-      img: 'img/catherineExecution.jpg',
-      alt: "Drawing of Catherine Howard's Execution",
+      name: null,
+      images: [
+        {
+          img:'img/catherineExecution.jpg',
+          alt: "Drawing of Catherine Howard's Execution"
+        }
+      ]
     },
   },
   {
@@ -51,8 +66,13 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Her first cousin, twice removed, James Stewart',
-      img: 'img/kingJames.jpg',
-      alt: 'Image of King James the first of England'
+      name: null,
+      images: [
+        {
+          img:'img/kingJames.jpg',
+          alt: 'Image of King James the first of England'
+        }
+      ]
     },
   },
   {
@@ -65,8 +85,13 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'King Henry the 7th',
-      img: 'img/henryTheSeventh.jpg',
-      alt: 'Portrait of King Henry the 7th'
+      name: null,
+      images: [
+        {
+          img:'img/henryTheSeventh.jpg',
+          alt: 'Portrait of King Henry the 7th'
+        }
+      ]
     },
   },
   {
@@ -78,15 +103,18 @@ const STORE = [
       5
     ],
     correctAnswer: {
-      correct: '2, Anne of Cleves and Katherine Parr',
-      img: [
-        'img/anneOfCleves.jpg',
-        'img/katherineParr.jpg'
-      ],
-      alt: [
-        'Portrait of Anne of Cleves',
-        'Portrait of Katherine Parr'
-      ],
+      correct: 2,
+      name: 'Anne of Cleves and Katherine Parr',
+      images: [
+        {
+          img:'img/anneOfCleves.jpg',
+          alt: 'Portrait of Anne of Cleves'
+        },
+        {
+          img: 'img/katherineParr.jpg',
+          alt: 'Portrait of Katherine Parr'
+        }
+      ]
     },
   },
   {
@@ -99,22 +127,32 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Elizabeth of York',
-      img: 'img/elizabethYork.jpg',
-      alt: 'Portrait of Elizabeth of York',
-    },
+      name: null,
+      images: [
+        {
+          img: 'img/elizabethYork.jpg',
+          alt: 'Portrait of Elizabeth of York'
+        }
+      ]
+    }
   },
   {
     question: "Which of Henry the 8th's six wives had a living son?",
     answers: [
       'Anne Boleyn',
       'Anne of Cleeves',
-      'Jane Seymore',
+      'Jane Seymoure',
       'Katherine Parr'
     ],
     correctAnswer: {
       correct: 'Jane Seymoure',
-      img: 'img/janeSeymour.jpg',
-      alt: 'Portrait of Jane Seymour'
+      name: null,
+      images: [
+        {
+          img:'img/janeSeymour.jpg',
+          alt: 'Portrait of Jane Seymour'
+        }
+      ]
     },
   },
   {
@@ -127,8 +165,13 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'King Edward the 6th',
-      img: 'img/edwardVI.jpg',
-      alt: 'Portrait of King Edward the 6th'
+      name: null,
+      images: [
+        {
+          img:'img/edwardVI.jpg',
+          alt: 'Portrait of King Edward the 6th'
+        }
+      ]
     },
   },
-]
+];
