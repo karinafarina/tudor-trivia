@@ -7,9 +7,11 @@ const STORE = [
       'Catherine Howard',
       'Katherine Parr'
     ],
-    correctAnswer: 'Anne of Cleeves',
-    img: 'img/anneOfCleves.jpg',
-    alt: 'Portrait of Anne of Cleves'
+    correctAnswer: {
+      correct: 'Anne of Cleeves',
+      img: 'img/anneOfCleves.jpg',
+      alt: 'Portrait of Anne of Cleves'
+    },
   },
   {
     question: 'How many living children did his first wife have?',
@@ -19,9 +21,11 @@ const STORE = [
       0,
       1
     ],
-    correctAnswer: 1,
-    img: 'img/maryTudor.jpg',
-    alt: 'Portrait of Mary Tudor'
+    correctAnswer: {
+      correct: "1 Mary Tudor",
+      img: 'img/maryTudor.jpg',
+      alt: 'Portrait of Mary Tudor',
+    },
   },
   {
     question: 'How did Catherine Howard die?',
@@ -31,9 +35,11 @@ const STORE = [
       'Beheading',
       'The Plague'
     ],
-    correctAnswer: 'Beheading',
-    img: 'img/catherineExecution.jpg',
-    alt: "Drawing of Catherine Howard's Execution"
+    correctAnswer: {
+      correct: 'Beheading',
+      img: 'img/catherineExecution.jpg',
+      alt: "Drawing of Catherine Howard's Execution",
+    },
   },
   {
     question: 'Who was the successor to Queen Elizabeth the 1rst?',
@@ -43,9 +49,11 @@ const STORE = [
       'Her first cousin, once removed, Mary, Queen of Scots',
       'Her first cousin, twice removed, James Stewart'
     ],
-    correctAnswer: 'Her first cousin, twice removed, James Stewart',
-    img: 'img/kingJames.jpg',
-    alt: 'Image of King James the first of England'
+    correctAnswer: {
+      correct: 'Her first cousin, twice removed, James Stewart',
+      img: 'img/kingJames.jpg',
+      alt: 'Image of King James the first of England'
+    },
   },
   {
     question: 'What common ancestor did Queen Elizabeth and James Stewart share?',
@@ -55,9 +63,11 @@ const STORE = [
       'King Henry the 7th',
       'Queen Anne Bolyen'
     ],
-    correctAnswer: 'King Henry the 7th',
-    img: 'img/henryTheSeventh.jpg',
-    alt: 'Portrait of King Henry the 7th'
+    correctAnswer: {
+      correct: 'King Henry the 7th',
+      img: 'img/henryTheSeventh.jpg',
+      alt: 'Portrait of King Henry the 7th'
+    },
   },
   {
     question: 'How many of King Henry the 8th’s six wives survived their marriages to him?',
@@ -67,15 +77,17 @@ const STORE = [
       2,
       5
     ],
-    correctAnswer: 2,
-    img: [
-      'img/anneOfCleves.jpg',
-      'img/katherineParr.jpg'
-    ],
-    alt: [
-      'Portrait of Anne of Cleves',
-      'Portrait of Katherine Parr'
-    ]
+    correctAnswer: {
+      correct: '2, Anne of Cleves and Katherine Parr',
+      img: [
+        'img/anneOfCleves.jpg',
+        'img/katherineParr.jpg'
+      ],
+      alt: [
+        'Portrait of Anne of Cleves',
+        'Portrait of Katherine Parr'
+      ],
+    },
   },
   {
     question:'Who was King Henry the 8th’s mother?',
@@ -85,9 +97,11 @@ const STORE = [
       'Queen Elizabeth the 2nd',
       'Elizabeth Woodville'
     ],
-    correctAnswer: 'Elizabeth of York',
-    img: 'img/elizabethYork.jpg',
-    alt: 'Portrait of Elizabeth of York',
+    correctAnswer: {
+      correct: 'Elizabeth of York',
+      img: 'img/elizabethYork.jpg',
+      alt: 'Portrait of Elizabeth of York',
+    },
   },
   {
     question: "Which of Henry the 8th's six wives had a living son?",
@@ -97,9 +111,11 @@ const STORE = [
       'Jane Seymore',
       'Katherine Parr'
     ],
-    correctAnswer: 'Jane Seymoure',
-    img: 'img/janeSeymour.jpg',
-    alt: 'Portrait of Jane Seymour'
+    correctAnswer: {
+      correct: 'Jane Seymoure',
+      img: 'img/janeSeymour.jpg',
+      alt: 'Portrait of Jane Seymour'
+    },
   },
   {
     question: "Who was King Henry the 8th's successor?",
@@ -109,8 +125,10 @@ const STORE = [
       'King Edward the 6th',
       'Queen Victoria the 1st'
     ],
-    correctAnswer: 'King Edward the 6th',
-    img: 'img/edwardVI.jpg',
-    alt: 'Portrait of King Edward the 6th'
+    correctAnswer: {
+      correct: 'King Edward the 6th',
+      img: 'img/edwardVI.jpg',
+      alt: 'Portrait of King Edward the 6th'
+    },
   },
 ]
