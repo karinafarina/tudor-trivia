@@ -9,7 +9,7 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Anne of Cleeves',
-      name: null,
+      name: '',
       images: [
         {
           img:'img/anneOfCleves.jpg',
@@ -47,7 +47,7 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Beheading',
-      name: null,
+      name: '',
       images: [
         {
           img:'img/catherineExecution.jpg',
@@ -66,7 +66,7 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Her first cousin, twice removed, James Stewart',
-      name: null,
+      name: '',
       images: [
         {
           img:'img/kingJames.jpg',
@@ -85,7 +85,7 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'King Henry the 7th',
-      name: null,
+      name: '',
       images: [
         {
           img:'img/henryTheSeventh.jpg',
@@ -127,7 +127,7 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Elizabeth of York',
-      name: null,
+      name: '',
       images: [
         {
           img: 'img/elizabethYork.jpg',
@@ -146,7 +146,7 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'Jane Seymoure',
-      name: null,
+      name: '',
       images: [
         {
           img:'img/janeSeymour.jpg',
@@ -165,7 +165,7 @@ const STORE = [
     ],
     correctAnswer: {
       correct: 'King Edward the 6th',
-      name: null,
+      name: '',
       images: [
         {
           img:'img/edwardVI.jpg',

@@ -19,10 +19,10 @@ function generateQuestions() {
     <div class="numbers">Question: ${questionNumber + 1} of 9</div>
     <h1 class="question-title">${STORE[questionNumber].question}</h1>
       <form>
-        <input type="radio" name="answers" value="${STORE[questionNumber].answers[0]}">${STORE[questionNumber].answers[0]}<br>
-        <input type="radio" name="answers" value="${STORE[questionNumber].answers[1]}">${STORE[questionNumber].answers[1]}<br>
-        <input type="radio" name="answers" value="${STORE[questionNumber].answers[2]}">${STORE[questionNumber].answers[2]}<br>
-        <input type="radio" name="answers" value="${STORE[questionNumber].answers[3]}">${STORE[questionNumber].answers[3]}<br>
+        <label><input type="radio" name="answers" value="${STORE[questionNumber].answers[0]}">${STORE[questionNumber].answers[0]}</label><br>
+        <label><input type="radio" name="answers" value="${STORE[questionNumber].answers[1]}">${STORE[questionNumber].answers[1]}</label><br>
+        <label><input type="radio" name="answers" value="${STORE[questionNumber].answers[2]}">${STORE[questionNumber].answers[2]}</label><br>
+        <label><input type="radio" name="answers" value="${STORE[questionNumber].answers[3]}">${STORE[questionNumber].answers[3]}</label>
         <button type="submit" class="submit">Submit</button>
       </form>
       <div class="tally numbers">Score: <span class="score">${tally}</span></div>`;
@@ -54,6 +54,17 @@ function changeTally() {
   console.log(tally);
 }
 
+
+
+function name() {
+  console.log('store', STORE[questionNumber].correctAnswer.name);
+  if(STORE[questionNumber].correctAnswer.name !== '') {
+    return STORE[questionNumber].correctAnswer.name;
+  } else {
+    return '';
+  }
+}
+
 function handleSubmitButton() {
   $('.questions').on('click', '.submit', function(event) {
     event.preventDefault();
@@ -63,24 +74,26 @@ function handleSubmitButton() {
     $('.questions').css('display', 'none');
     $('.correct').css('display', 'flex');
     //if answer is correct, render html for correct statement with image and alt
-    console.log(correctAnswer,'correct answer');
-    console.log(userAnswer, 'user answer');
+    const images = STORE[questionNumber].correctAnswer.images.map(img => `<img src="${img.img}" alt="${img.alt}" class="correct-image">`).join('');
     if(correctAnswer === userAnswer) {
-    changeTally();
-    console.log('that is correct');
-    console.log($.isArray(STORE[questionNumber].correctAnswer.img, "Array"));
-    $('.correct').html(`<h1 class="correct-title">You are Correct!</h1>
-      <div class="image-wrapper">
-        ${STORE[questionNumber].correctAnswer.images.map(img => `<img src="${img.img}" alt="${img.alt}" class="correct-image">`)}
-      </div>
-      <p class="correct-answer">${STORE[questionNumber].correctAnswer.correct}, that is correct!</p>
-      <button type="button" name="button" class="next">Next</button>`);
+      changeTally();
+      console.log('that is correct');
+      $('.correct').html(`<h1 class="correct-title">You are Correct!</h1>
+        <div class="image-wrapper">
+          ${images}
+
+        </div>
+        ${name()}
+        <p class="correct-answer">${STORE[questionNumber].correctAnswer.correct}, that is correct!</p>
+        <button type="button" name="button" class="next">Next</button>`);
     } else {
-      $('.correct').html(`<h1 class="correct-title">You are Incorrect!</h1>
+      $('.correct').html(`<h1 class="correct-title">You answered ${userAnswer}, that is Incorrect!</h1>
       <div class="image-wrapper">
-        ${STORE[questionNumber].correctAnswer.images.map(img => `<img src="${img.img}" alt="${img.alt}" class="correct-image">`)}
+        ${images}
+
       </div>
-      <p class="correct-answer">${STORE[questionNumber].correctAnswer.correct}, that is correct!</p>
+      ${name()}
+      <p class="correct-answer">The correct answer is ${STORE[questionNumber].correctAnswer.correct}!</p>
       <button type="button" name="button" class="next">Next</button>`);
     }
   })
@@ -106,7 +119,7 @@ function overallScore() {
       $('.results').html(`<h1>You got ${numCorrect} out of 9 correct</h1>
       <p>You are Royal enough to mary your cousin!<br>Congratulations!</p>
       <button type="button" name="button" class="try-again">Try again</button>`);
-    } else if (numCorrect > 4 && numCorrect < 6) {
+    } else if (numCorrect > 4 && numCorrect <= 6) {
       $('.results').html(`<h1>You got ${numCorrect} out of 9 correct</h1>
       <p>You are a commoner! <br /> You are not fit to lick the Kings shoes!</p>
       <button type="button" name="button" class="try-again">Try again</button>`);
@@ -120,9 +133,10 @@ function overallScore() {
 
 //start a new quiz
 function handleStartNewButton() {
-  $('.results').on('click', '.try-again', function() {
-    $('.results').hide();
+  $('main').on('click', '.try-again', function() {
+    $('.results').css('display', 'none');
     $('.start-screen').show();
+    handleStartButton();
   })
   console.log('`handleStartNewButton` ran');
 
@@ -132,7 +146,6 @@ function handleQuizApp() {
   handleStartButton();
   handleSubmitButton();
   handleNextButton();
-  //handleStartNewButton();
 }
 
 
