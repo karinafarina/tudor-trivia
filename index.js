@@ -13,44 +13,46 @@ function handleStartButton() {
   });
 }
 //Loop through and Display each question from the STORE and the choices with a submit button
-function generateQuestions() {
+function generateQuestions(error) {
   if(questionNumber < STORE.length) {
     return `<img class="questions-background" src="./img/castle.jpg" alt="portrait of castle">
     <div class="numbers">Question: ${questionNumber + 1} of 9</div>
     <h1 class="question-title">${STORE[questionNumber].question}</h1>
       <form>
-        <label>
-          <input
-            type="radio"
-            name="answers"
-            value="${STORE[questionNumber].answers[0]}"
-            required>
-          ${STORE[questionNumber].answers[0]}
-        </label><br>
-        <label>
-          <input
-            type="radio"
-            name="answers"
-            value="${STORE[questionNumber].answers[1]}"
-            required>
-          ${STORE[questionNumber].answers[1]}
-        </label><br>
-        <label>
-          <input
-            type="radio"
-            name="answers"
-            value="${STORE[questionNumber].answers[2]}"
-            required>
-          ${STORE[questionNumber].answers[2]}
-        </label><br>
-        <label>
-          <input
-            type="radio"
-            name="answers" value="${STORE[questionNumber].answers[3]}"
-            required>
-          ${STORE[questionNumber].answers[3]}
-        </label>
-        <button type="submit" class="submit">Submit</button>
+        <fieldset>
+          <label>
+            <input
+              type="radio"
+              name="answers"
+              value="${STORE[questionNumber].answers[0]}"
+              required>
+            ${STORE[questionNumber].answers[0]}
+          </label><br>
+          <label>
+            <input
+              type="radio"
+              name="answers"
+              value="${STORE[questionNumber].answers[1]}"
+              required>
+            ${STORE[questionNumber].answers[1]}
+          </label><br>
+          <label>
+            <input
+              type="radio"
+              name="answers"
+              value="${STORE[questionNumber].answers[2]}"
+              required>
+            ${STORE[questionNumber].answers[2]}
+          </label><br>
+          <label>
+            <input
+              type="radio"
+              name="answers" value="${STORE[questionNumber].answers[3]}"
+              required>
+            ${STORE[questionNumber].answers[3]}
+          </label>
+          <input type="submit" class="submit">
+        </fieldset>
       </form>
       <div class="tally numbers">Score: <span class="score">${tally}</span></div>`;
   } else {
@@ -144,16 +146,19 @@ function overallScore() {
     console.log(numCorrect, 'final number correct');
     if(numCorrect > 6) {
       $('.results').html(`<h1>You got ${numCorrect} out of 9 correct</h1>
-      <p>You are Royal enough to mary your cousin!<br>Congratulations!</p>
-      <button type="button" name="button" class="try-again">Try again</button>`);
+        <img class="tudor-rose" src="./img/tudorRose.jpg">
+        <p>You are Royal enough to mary your cousin!<br>Congratulations!</p>
+        <button type="button" name="button" class="try-again">Try again</button>`);
     } else if (numCorrect > 4 && numCorrect <= 6) {
       $('.results').html(`<h1>You got ${numCorrect} out of 9 correct</h1>
-      <p>You are a commoner! <br /> You are not fit to lick the Kings shoes!</p>
-      <button type="button" name="button" class="try-again">Try again</button>`);
+        <img class="tudor-rose" src="./img/tudorRose.jpg">
+        <p>You are a commoner! <br /> You are not fit to lick the Kings shoes!</p>
+        <button type="button" name="button" class="try-again">Try again</button>`);
     } else {
       $('.results').html(`<h1>You got ${numCorrect} out of 9 correct</h1>
-      <p>You are a lowly peasant! <br /> King Henry the 8th would have had you beheaded!</p>
-      <button type="button" name="button" class="try-again">Try again</button>`);
+        <img class="tudor-rose" src="./img/tudorRose.jpg">
+        <p>You are a lowly peasant! <br /> King Henry the 8th would have had you beheaded!</p>
+        <button type="button" name="button" class="try-again">Try again</button>`);
     }
     handleStartNewButton();
 }

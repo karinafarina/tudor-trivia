@@ -98,9 +98,9 @@ input[type="radio"] {
 	font-size: 20px;
 }
 .correct {
-	background: #C9FFBF;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #FFAFBD, #C9FFBF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #fff;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right top, rgb(236, 28, 28), #fff);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right top, rgb(236, 28, 28), #fff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	font-size: 50px;
 	display: none;
 	flex-direction: column;
@@ -113,12 +113,14 @@ input[type="radio"] {
 
 .image-wrapper {
 	display: flex;
+	justify-content: space-around;
 	width: 65vw;
 }
 
 .correct-image {
-	margin: 0 auto;
-	//width: 22vw;
+	max-height: 450px;
+	min-height: 350px;
+	min-width: 261px;
 }
 
 .next {
@@ -136,4 +138,8 @@ input[type="radio"] {
 	align-items: center;
 	font-size: 40px;
 	text-align: center;
+}
+
+.tudor-rose {
+	height: 40%;
 }
