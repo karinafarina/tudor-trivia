@@ -19,10 +19,37 @@ function generateQuestions() {
     <div class="numbers">Question: ${questionNumber + 1} of 9</div>
     <h1 class="question-title">${STORE[questionNumber].question}</h1>
       <form>
-        <label><input type="radio" name="answers" value="${STORE[questionNumber].answers[0]}">${STORE[questionNumber].answers[0]}</label><br>
-        <label><input type="radio" name="answers" value="${STORE[questionNumber].answers[1]}">${STORE[questionNumber].answers[1]}</label><br>
-        <label><input type="radio" name="answers" value="${STORE[questionNumber].answers[2]}">${STORE[questionNumber].answers[2]}</label><br>
-        <label><input type="radio" name="answers" value="${STORE[questionNumber].answers[3]}">${STORE[questionNumber].answers[3]}</label>
+        <label>
+          <input
+            type="radio"
+            name="answers"
+            value="${STORE[questionNumber].answers[0]}"
+            required>
+          ${STORE[questionNumber].answers[0]}
+        </label><br>
+        <label>
+          <input
+            type="radio"
+            name="answers"
+            value="${STORE[questionNumber].answers[1]}"
+            required>
+          ${STORE[questionNumber].answers[1]}
+        </label><br>
+        <label>
+          <input
+            type="radio"
+            name="answers"
+            value="${STORE[questionNumber].answers[2]}"
+            required>
+          ${STORE[questionNumber].answers[2]}
+        </label><br>
+        <label>
+          <input
+            type="radio"
+            name="answers" value="${STORE[questionNumber].answers[3]}"
+            required>
+          ${STORE[questionNumber].answers[3]}
+        </label>
         <button type="submit" class="submit">Submit</button>
       </form>
       <div class="tally numbers">Score: <span class="score">${tally}</span></div>`;
@@ -136,6 +163,8 @@ function handleStartNewButton() {
   $('main').on('click', '.try-again', function() {
     $('.results').css('display', 'none');
     $('.start-screen').show();
+    questionNumber = 0;
+    tally = 0;
     handleStartButton();
   })
   console.log('`handleStartNewButton` ran');
