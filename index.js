@@ -13,7 +13,7 @@ function handleStartButton() {
   });
 }
 //Loop through and Display each question from the STORE and the choices with a submit button
-function generateQuestions(error) {
+function generateQuestions() {
   if(questionNumber < STORE.length) {
     return `<img class="questions-background" src="./img/castle.jpg" alt="portrait of castle">
     <div class="numbers">Question: ${questionNumber + 1} of 9</div>
@@ -51,7 +51,7 @@ function generateQuestions(error) {
               required>
             ${STORE[questionNumber].answers[3]}
           </label>
-          <input type="submit" class="submit">
+          <button type="button" class="submit">Submit</button>
         </fieldset>
       </form>
       <div class="tally numbers">Score: <span class="score">${tally}</span></div>`;
@@ -95,35 +95,39 @@ function name() {
 }
 
 function handleSubmitButton() {
-  $('.questions').on('click', '.submit', function(event) {
-    event.preventDefault();
+  $('.questions').on('click', '.submit', function() {
     let selected = $('input:checked');
     let userAnswer = selected.val();
-    let correctAnswer = `${STORE[questionNumber].correctAnswer.correct}`;
-    $('.questions').css('display', 'none');
-    $('.correct').css('display', 'flex');
-    //if answer is correct, render html for correct statement with image and alt
-    const images = STORE[questionNumber].correctAnswer.images.map(img => `<img src="${img.img}" alt="${img.alt}" class="correct-image">`).join('');
-    if(correctAnswer === userAnswer) {
-      changeTally();
-      console.log('that is correct');
-      $('.correct').html(`<h1 class="correct-title">You are Correct!</h1>
+    console.log(userAnswer, 'user andwer');
+    if(userAnswer === undefined) {
+      window.alert('Please select one of the options');
+    } else {
+      let correctAnswer = `${STORE[questionNumber].correctAnswer.correct}`;
+      $('.questions').css('display', 'none');
+      $('.correct').css('display', 'flex');
+      //if answer is correct, render html for correct statement with image and alt
+      const images = STORE[questionNumber].correctAnswer.images.map(img => `<img src="${img.img}" alt="${img.alt}" class="correct-image">`).join('');
+      if(correctAnswer === userAnswer) {
+        changeTally();
+        console.log('that is correct');
+        $('.correct').html(`<h1 class="correct-title">You are Correct!</h1>
+          <div class="image-wrapper">
+            ${images}
+
+          </div>
+          ${name()}
+          <p class="correct-answer">${STORE[questionNumber].correctAnswer.correct}, that is correct!</p>
+          <button type="button" name="button" class="next">Next</button>`);
+      } else {
+        $('.correct').html(`<h1 class="correct-title">You answered ${userAnswer}, that is Incorrect!</h1>
         <div class="image-wrapper">
           ${images}
 
         </div>
         ${name()}
-        <p class="correct-answer">${STORE[questionNumber].correctAnswer.correct}, that is correct!</p>
+        <p class="correct-answer">The correct answer is ${STORE[questionNumber].correctAnswer.correct}!</p>
         <button type="button" name="button" class="next">Next</button>`);
-    } else {
-      $('.correct').html(`<h1 class="correct-title">You answered ${userAnswer}, that is Incorrect!</h1>
-      <div class="image-wrapper">
-        ${images}
-
-      </div>
-      ${name()}
-      <p class="correct-answer">The correct answer is ${STORE[questionNumber].correctAnswer.correct}!</p>
-      <button type="button" name="button" class="next">Next</button>`);
+      }
     }
   })
 }
@@ -146,17 +150,17 @@ function overallScore() {
     console.log(numCorrect, 'final number correct');
     if(numCorrect > 6) {
       $('.results').html(`<h1>You got ${numCorrect} out of 9 correct</h1>
-        <img class="tudor-rose" src="./img/tudorRose.jpg">
+        <img class="results-image" src="./img/tudorRose.jpg" alt="Tudor Rose">
         <p>You are Royal enough to mary your cousin!<br>Congratulations!</p>
         <button type="button" name="button" class="try-again">Try again</button>`);
-    } else if (numCorrect > 4 && numCorrect <= 6) {
+    } else if (numCorrect >= 4 && numCorrect <= 6) {
       $('.results').html(`<h1>You got ${numCorrect} out of 9 correct</h1>
-        <img class="tudor-rose" src="./img/tudorRose.jpg">
+        <img class="results-image" src="./img/henryShoe.jpg" alt="Henry's Shoe">
         <p>You are a commoner! <br /> You are not fit to lick the Kings shoes!</p>
         <button type="button" name="button" class="try-again">Try again</button>`);
     } else {
       $('.results').html(`<h1>You got ${numCorrect} out of 9 correct</h1>
-        <img class="tudor-rose" src="./img/tudorRose.jpg">
+        <img class="results-image" src="./img/kidHead.jpg" alt="A kid's head on a platter">
         <p>You are a lowly peasant! <br /> King Henry the 8th would have had you beheaded!</p>
         <button type="button" name="button" class="try-again">Try again</button>`);
     }

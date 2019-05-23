@@ -19,7 +19,7 @@ const STORE = [
     },
   },
   {
-    question: 'How many living children did his first wife have?',
+    question: "How many living children did Henry the 8th's first wife have?",
     answers: [
       3,
       8,
@@ -57,7 +57,7 @@ const STORE = [
     },
   },
   {
-    question: 'Who was the successor to Queen Elizabeth the 1rst?',
+    question: 'Who was the successor to Queen Elizabeth the 1st?',
     answers: [
       'Her son, Henry the 9th',
       'Her daughter, Elizabeth the 2nd',

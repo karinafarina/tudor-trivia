@@ -50,14 +50,32 @@ main {
   font-size: 60px;
   color: #fff;
 }
+@media only screen and (max-width: 575px) {
+		.title {
+		font-size: 40px;
+		text-align: center;
+	}
+}
+
 
 button.start {
   font-size: 30px;
   border-radius: 3px;
 }
 
+@media only screen and (max-width: 575px) {
+		button.start {
+		font-size: 23px;
+	}
+}
+
 .numbers {
 	font-size: 30px;
+}
+@media only screen and (max-width: 575px) {
+		.numbers {
+		font-size: 25px;
+	}
 }
 
 .questions-background {
@@ -81,9 +99,22 @@ button.start {
 	text-align: center;
 	font-size: 50px;
 }
+@media only screen and (max-width: 575px) {
+		.question-title {
+		font-size: 30px;
+		padding: 0 22px;
+	}
+}
 
 form {
 	font-size: 35px;
+	padding: 0 50px;
+}
+
+@media only screen and (max-width: 575px) {
+		form {
+		font-size: 24px;
+	}
 }
 
 input[type="radio"] {
@@ -96,11 +127,12 @@ input[type="radio"] {
 	margin-left: auto;
 	margin-top: 90px;
 	font-size: 20px;
+	background: #fff;
 }
 .correct {
 	background: #fff;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right top, rgb(236, 28, 28), #fff);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right top, rgb(236, 28, 28), #fff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right top, #893a3f, #fff);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right top, #893a3f, #fff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	font-size: 50px;
 	display: none;
 	flex-direction: column;
@@ -110,17 +142,37 @@ input[type="radio"] {
 	text-align: center;
 	padding: 0 30px;
 }
+@media only screen and (max-width: 575px) {
+		.correct {
+		font-size: 33px;
+	}
+}
 
 .image-wrapper {
 	display: flex;
 	justify-content: space-around;
 	width: 65vw;
 }
+@media only screen and (max-width: 575px) {
+		.image-wrapper {
+		justify-content: center;
+
+	}
+}
 
 .correct-image {
 	max-height: 450px;
 	min-height: 350px;
 	min-width: 261px;
+}
+@media only screen and (max-width: 575px) {
+		.correct-image {
+		max-height: 258px;
+		min-height: unset;
+		min-width: unset;
+
+
+	}
 }
 
 .next {
@@ -139,7 +191,22 @@ input[type="radio"] {
 	font-size: 40px;
 	text-align: center;
 }
+@media only screen and (max-width: 575px) {
+		.results {
+		font-size: 29px;
+		padding: 0 33px;
+	}
+}
 
-.tudor-rose {
-	height: 40%;
+.results-image {
+	max-height: 40%;
+}
+@media only screen and (max-width: 575px) {
+	.results-image {
+
+	}
+}
+
+.try-again {
+	background: #fff;
 }
