@@ -17,40 +17,42 @@ function generateQuestions() {
   if(questionNumber < STORE.length) {
     return `<img class="questions-background" src="./img/castle.jpg" alt="portrait of castle">
     <div class="numbers">Question: ${questionNumber + 1} of 9</div>
-    <h1 class="question-title">${STORE[questionNumber].question}</h1>
       <form>
         <fieldset>
-          <label>
-            <input
-              type="radio"
-              name="answers"
-              value="${STORE[questionNumber].answers[0]}"
-              required>
-            ${STORE[questionNumber].answers[0]}
-          </label><br>
-          <label>
-            <input
-              type="radio"
-              name="answers"
-              value="${STORE[questionNumber].answers[1]}"
-              required>
-            ${STORE[questionNumber].answers[1]}
-          </label><br>
-          <label>
-            <input
-              type="radio"
-              name="answers"
-              value="${STORE[questionNumber].answers[2]}"
-              required>
-            ${STORE[questionNumber].answers[2]}
-          </label><br>
-          <label>
-            <input
-              type="radio"
-              name="answers" value="${STORE[questionNumber].answers[3]}"
-              required>
-            ${STORE[questionNumber].answers[3]}
-          </label>
+        <legend class="question-title">${STORE[questionNumber].question}</legend>
+          <div class="form-wrapper">
+            <label>
+              <input
+                type="radio"
+                name="answers"
+                value="${STORE[questionNumber].answers[0]}"
+                required>
+              ${STORE[questionNumber].answers[0]}
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="answers"
+                value="${STORE[questionNumber].answers[1]}"
+                required>
+              ${STORE[questionNumber].answers[1]}
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="answers"
+                value="${STORE[questionNumber].answers[2]}"
+                required>
+              ${STORE[questionNumber].answers[2]}
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="answers" value="${STORE[questionNumber].answers[3]}"
+                required>
+              ${STORE[questionNumber].answers[3]}
+            </label>
+          </div>
           <button type="button" class="submit">Submit</button>
         </fieldset>
       </form>
@@ -110,23 +112,27 @@ function handleSubmitButton() {
       if(correctAnswer === userAnswer) {
         changeTally();
         console.log('that is correct');
-        $('.correct').html(`<h1 class="correct-title">You are Correct!</h1>
+        $('.correct').html(`<div class="correct-wrapper">
+          <h1 class="correct-title">You are Correct!</h1>
+            <div class="image-wrapper">
+              ${images}
+
+            </div>
+            ${name()}
+            <p class="correct-answer">${STORE[questionNumber].correctAnswer.correct}, that is correct!</p>
+            <button type="button" name="button" class="next">Next</button>
+          </div>`);
+      } else {
+        $('.correct').html(`<div class="correct-wrapper">
+          <h1 class="correct-title">You answered ${userAnswer}, that is Incorrect!</h1>
           <div class="image-wrapper">
             ${images}
 
           </div>
           ${name()}
-          <p class="correct-answer">${STORE[questionNumber].correctAnswer.correct}, that is correct!</p>
-          <button type="button" name="button" class="next">Next</button>`);
-      } else {
-        $('.correct').html(`<h1 class="correct-title">You answered ${userAnswer}, that is Incorrect!</h1>
-        <div class="image-wrapper">
-          ${images}
-
-        </div>
-        ${name()}
-        <p class="correct-answer">The correct answer is ${STORE[questionNumber].correctAnswer.correct}!</p>
-        <button type="button" name="button" class="next">Next</button>`);
+          <p class="correct-answer">The correct answer is ${STORE[questionNumber].correctAnswer.correct}!</p>
+          <button type="button" name="button" class="next">Next</button>
+        <div>`);
       }
     }
   })
