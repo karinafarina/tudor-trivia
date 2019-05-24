@@ -223,8 +223,8 @@ input[type="radio"] {
 	border-radius: 5px;
 	cursor: pointer;
 	width: fit-content;
-	align-self: center
-	
+	align-self: center;
+	background: #fff;
 }
 
 .results {
